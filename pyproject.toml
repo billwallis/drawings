@@ -1,0 +1,13 @@
+[project]
+name = "drawings"
+version = "0.0.0"
+dependencies = ["matplotlib"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=drawings"
+testpaths = [
+    "tests",
+]
+
+[tool.isort]
+profile = "black"
