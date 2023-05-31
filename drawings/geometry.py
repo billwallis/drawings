@@ -81,7 +81,7 @@ class Line:
 
     def __add__(self, other: float | Point) -> Line:
         if isinstance(other, Line):
-            raise ArithmeticError("Cannot add two lines together.")
+            raise TypeError("Cannot add two lines together.")
         return Line(self.start + other, self.end + other)
 
     def __radd__(self, other: Any) -> Line:
