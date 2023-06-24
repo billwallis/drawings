@@ -2,6 +2,9 @@
 # See https://pre-commit.com/hooks.html for more hooks
 ---
 repos:
+  - repo: meta
+    hooks:
+      - id: identity
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
