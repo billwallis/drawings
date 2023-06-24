@@ -5,7 +5,7 @@ ignore:
   - tests/
   - test_*.py
   - setup.py
-  - '*/scratches/'
+  - "*/scratches/"
 
 rule_settings:
   enable:
