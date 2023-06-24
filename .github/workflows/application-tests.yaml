@@ -30,6 +30,8 @@ jobs:
 
       - name: 🌿 Run pre-commit
         uses: pre-commit/action@v3.0.0
+        env:
+          SKIP: sourcery
 
       - name: ✅ Run unit tests
         run: pytest tests
