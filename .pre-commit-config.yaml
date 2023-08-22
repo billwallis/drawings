@@ -28,7 +28,7 @@ repos:
 
   # Formatting
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.0
+    rev: v3.0.2
     hooks:
       - id: prettier
         name: Make code pretty
@@ -62,7 +62,7 @@ repos:
 
   # Sourcery (refactoring)
   - repo: https://github.com/sourcery-ai/sourcery
-    rev: v1.3.0
+    rev: v1.8.0
     hooks:
       - id: sourcery
         name: Check for refactoring opportunities
