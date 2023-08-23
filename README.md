@@ -1,6 +1,7 @@
 <div align="center">
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 [![application-tests](https://github.com/Bilbottom/drawings/actions/workflows/application-tests.yaml/badge.svg)](https://github.com/Bilbottom/drawings/actions/workflows/application-tests.yaml)
 [![coverage](coverage.svg)](https://github.com/dbrgn/coverage-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Bilbottom/drawings)
