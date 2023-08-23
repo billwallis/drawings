@@ -1,12 +1,7 @@
 name: application-tests
 run-name: Application tests 🧪
 
-on:
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - "drawings/**"
-      - "tests/**"
+on: [workflow_dispatch, pull_request]
 
 jobs:
   linting-and-formatting:
@@ -27,11 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
-
-      - name: 🌿 Run pre-commit
-        uses: pre-commit/action@v3.0.0
-        env:
-          SKIP: sourcery
 
       - name: ✅ Run unit tests
         run: pytest tests

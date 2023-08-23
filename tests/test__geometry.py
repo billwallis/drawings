@@ -13,13 +13,14 @@ from drawings.geometry import Line, Number, Point
 # Point Tests
 ###
 
+
 @pytest.mark.parametrize(
     "point, other, expected",
     [
         (Point(1, 2), Point(1, 2), True),
         (Point(1, 2), Point(1.0, 2.0), True),
         (Point(1, 2), Point(1, 3), False),
-    ]
+    ],
 )
 def test__point__equal(point: Point, other: Number | Point, expected: Point):
     """
@@ -41,7 +42,7 @@ def test__point__equal__not_implemented():
         (Point(1, 2), 3, Point(4, 5)),
         (Point(1.0, 2.0), 3.0, Point(4.0, 5.0)),
         (Point(1, 2), Point(3, 4), Point(4, 6)),
-    ]
+    ],
 )
 def test__point__addition(point: Point, other: Number | Point, expected: Point):
     """
@@ -64,7 +65,7 @@ def test__point__addition__not_implemented():
     [
         ([Point(1, 2), 3], Point(4, 5)),
         ([Point(1, 2), Point(3, 4)], Point(4, 6)),
-    ]
+    ],
 )
 def test__point__addition_inplace(points: list[Number | Point], expected: Point):
     """
@@ -83,7 +84,7 @@ def test__point__addition_inplace(points: list[Number | Point], expected: Point)
         (Point(4, 5), 3, Point(1, 2)),
         (Point(4.0, 5.0), 3.0, Point(1.0, 2.0)),
         (Point(4, 6), Point(3, 4), Point(1, 2)),
-    ]
+    ],
 )
 def test__point__subtraction(point: Point, other: Number | Point, expected: Point):
     """
@@ -106,7 +107,7 @@ def test__point__subtraction__not_implemented():
     [
         ([Point(4, 5), 3], Point(-7, -8)),
         ([Point(4, 6), Point(3, 4)], Point(-7, -10)),
-    ]
+    ],
 )
 def test__point__subtraction_inplace(points: list[Number | Point], expected: Point):
     """
@@ -125,7 +126,7 @@ def test__point__subtraction_inplace(points: list[Number | Point], expected: Poi
         (Point(1, 2), 3, Point(3, 6)),
         (Point(1.0, 2.0), 3.0, Point(3.0, 6.0)),
         (Point(1, 2), Point(3, 4), Point(3, 8)),
-    ]
+    ],
 )
 def test__point__multiplication(point: Point, other: Number | Point, expected: Point):
     """
@@ -148,7 +149,7 @@ def test__point__multiplication__not_implemented():
     [
         ([Point(1, 2), 3], Point(3, 6)),
         ([Point(1, 2), Point(3, 4)], Point(3, 8)),
-    ]
+    ],
 )
 def test__point__multiplication_inplace(points: list[Number | Point], expected: Point):
     """
@@ -169,7 +170,7 @@ def test__point__multiplication_inplace(points: list[Number | Point], expected: 
         (Point(1, 2), math.radians(180), Point(-1, -2)),
         (Point(1, 2), math.radians(270), Point(2, -1)),
         (Point(1, 2), math.radians(360), Point(1, 2)),
-    ]
+    ],
 )
 def test__point__rotate(point: Point, angle: Number, expected: Point):
     """
@@ -182,12 +183,13 @@ def test__point__rotate(point: Point, angle: Number, expected: Point):
 # Line Tests
 ###
 
+
 @pytest.mark.parametrize(
     "line, start, end",
     [
         (Line(1, 2), 1, 2),
         (Line(1.0, 2.0), 1.0, 2.0),
-    ]
+    ],
 )
 def test__line__initialisation__numbers(line: Line, start: Number, end: Number):
     """
@@ -248,7 +250,7 @@ def test__line__equal__not_implemented():
     [
         (Line(1, 2), 3, Line(4, 5)),
         (Line(1, 2), Point(3, 4), Line(Point(4, 5), Point(5, 6))),
-    ]
+    ],
 )
 def test__line__addition(line: Line, other: Number | Point, expected: Line):
     """
@@ -263,7 +265,7 @@ def test__line__addition(line: Line, other: Number | Point, expected: Line):
     [
         (Line(1, 2), "3"),
         (Line(1, 2), Line(3, 4)),
-    ]
+    ],
 )
 def test__line__addition__not_implemented(line: Line, other: str | Line):
     """
@@ -278,7 +280,7 @@ def test__line__addition__not_implemented(line: Line, other: str | Line):
     [
         ([Point(1, 2), 3], Line(Point(4, 5), Point(4, 5))),
         ([Point(1, 2), Point(3, 4)], Line(Point(4, 6), Point(4, 6))),
-    ]
+    ],
 )
 def test__line__addition_inplace(points: list[Number | Point], expected: Line):
     """
@@ -299,7 +301,7 @@ def test__line__addition_inplace(points: list[Number | Point], expected: Line):
         (Line(1, 2), math.radians(180), Line(1, Point(0, 0))),
         (Line(1, 2), math.radians(270), Line(1, Point(2, 0))),
         (Line(1, 2), math.radians(360), Line(1, 2)),
-    ]
+    ],
 )
 def test__line__rotate(line: Line, angle: Number, expected: Line):
     """
