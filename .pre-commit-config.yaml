@@ -69,3 +69,13 @@ repos:
         args: [--diff=git diff HEAD, --no-summary]
         files: drawings
         exclude: \.*/__init__\.py
+
+  # Testing
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run unit tests
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
