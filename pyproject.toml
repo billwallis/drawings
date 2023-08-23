@@ -38,6 +38,12 @@ testpaths = [
 ]
 
 
+[tool.coverage.run]
+omit = [
+    "drawings/main.py",
+]
+
+
 [tool.isort]
 profile = "black"
 
