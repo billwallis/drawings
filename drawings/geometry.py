@@ -13,6 +13,7 @@ class Point(NamedTuple):
     """
     A coordinate in 2-dimensional space.
     """
+
     x: Number
     y: Number
 
@@ -76,6 +77,7 @@ class Line:
     """
     A line between two points.
     """
+
     start: Number | Point
     end: Number | Point
 
