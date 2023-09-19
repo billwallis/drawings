@@ -43,7 +43,10 @@ class Point(NamedTuple):
             return NotImplemented
 
     def __rsub__(self, other: Number | Point) -> Point:
-        return self.__sub__(other)
+        if isinstance(other, Number):
+            return Point(other - self.x, other - self.y)
+        else:
+            return NotImplemented
 
     def __mul__(self, other: Number | Point) -> Point:
         if isinstance(other, Point):
@@ -59,17 +62,20 @@ class Point(NamedTuple):
     def __imul__(self, other: Number | Point) -> Point:
         return self.__mul__(other)
 
-    def rotate(self, angle: Number) -> Point:
+    # TODO: Add division operators
+
+    def rotate(self, angle: Number, digits: int = 8) -> Point:
         """
         Rotate the point anticlockwise by an angle.
 
         :param angle: The angle to rotate by, in radians.
+        :param digits: The number of digits to round to.
 
         :return: A new rotated point.
         """
         return Point(
-            round(self.x * math.cos(angle) - self.y * math.sin(angle), 8),
-            round(self.x * math.sin(angle) + self.y * math.cos(angle), 8),
+            round(self.x * math.cos(angle) - self.y * math.sin(angle), digits),
+            round(self.x * math.sin(angle) + self.y * math.cos(angle), digits),
         )
 
 
