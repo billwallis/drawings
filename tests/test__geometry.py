@@ -22,7 +22,7 @@ from drawings.geometry import Line, Number, Point
         (Point(1, 2), Point(1, 3), False),
     ],
 )
-def test__point__equal(point: Point, other: Number | Point, expected: Point):
+def test__point__equal(point: Point, other: Point, expected: bool):
     """
     Test the ``Point.__eq__()`` method.
     """
@@ -33,6 +33,7 @@ def test__point__equal__not_implemented():
     """
     Test that ``Point.__eq__()`` is ``False``.
     """
+    foo: str
     assert (Point(1, 2) == "3") is False
 
 
@@ -48,8 +49,8 @@ def test__point__addition(point: Point, other: Number | Point, expected: Point):
     """
     Test the ``Point.__add__()`` and ``Point.__radd__()`` methods.
     """
-    assert (point + other) == expected
-    assert point.__radd__(other) == expected
+    assert point + other == expected
+    assert other + point == expected
 
 
 def test__point__addition__not_implemented():
@@ -90,8 +91,21 @@ def test__point__subtraction(point: Point, other: Number | Point, expected: Poin
     """
     Test the ``Point.__sub__()`` and ``Point.__rsub__()`` method.
     """
-    assert (point - other) == expected
-    assert point.__rsub__(other) == expected
+    assert point - other == expected
+
+
+@pytest.mark.parametrize(
+    "other, point, expected",
+    [
+        (3, Point(4, 5), Point(-1, -2)),
+        (3.0, Point(4.0, 5.0), Point(-1.0, -2.0)),
+    ],
+)
+def test__point__subtraction__right(other: Number, point: Point, expected: Point):
+    """
+    Test the ``Point.__sub__()`` and ``Point.__rsub__()`` method.
+    """
+    assert other - point == expected
 
 
 def test__point__subtraction__not_implemented():
@@ -100,6 +114,14 @@ def test__point__subtraction__not_implemented():
     """
     with pytest.raises(TypeError):
         Point(1, 2) - "3"
+
+
+def test__point__subtraction__right__not_implemented():
+    """
+    Test that ``Point.__rsub__()`` fails.
+    """
+    with pytest.raises(TypeError):
+        "3" - Point(1, 2)
 
 
 @pytest.mark.parametrize(
@@ -132,8 +154,8 @@ def test__point__multiplication(point: Point, other: Number | Point, expected: P
     """
     Test the ``Point.__mul__()`` and ``Point.__rmul__()`` method.
     """
-    assert (point * other) == expected
-    assert point.__rmul__(other) == expected
+    assert point * other == expected
+    assert other * point == expected
 
 
 def test__point__multiplication__not_implemented():
@@ -256,8 +278,8 @@ def test__line__addition(line: Line, other: Number | Point, expected: Line):
     """
     Test the ``Line.__add__()`` and ``Line.__radd__()`` method.
     """
-    assert (line + other) == expected
-    assert line.__radd__(other) == expected
+    assert line + other == expected
+    assert other + line == expected
 
 
 @pytest.mark.parametrize(
