@@ -22,14 +22,14 @@ from drawings.geometry import Line, Number, Point
         (Point(1, 2), Point(1, 3), False),
     ],
 )
-def test__point__equal(point: Point, other: Point, expected: bool):
+def test__point__eq(point: Point, other: Point, expected: bool):
     """
     Test the ``Point.__eq__()`` method.
     """
     assert (point == other) is expected
 
 
-def test__point__equal__not_implemented():
+def test__point__eq__not_implemented():
     """
     Test that ``Point.__eq__()`` is ``False``.
     """
@@ -45,7 +45,7 @@ def test__point__equal__not_implemented():
         (Point(1, 2), Point(3, 4), Point(4, 6)),
     ],
 )
-def test__point__addition(point: Point, other: Number | Point, expected: Point):
+def test__point__add(point: Point, other: Number | Point, expected: Point):
     """
     Test the ``Point.__add__()`` and ``Point.__radd__()`` methods.
     """
@@ -53,7 +53,7 @@ def test__point__addition(point: Point, other: Number | Point, expected: Point):
     assert other + point == expected
 
 
-def test__point__addition__not_implemented():
+def test__point__add__not_implemented():
     """
     Test that ``Point.__add__()`` fails.
     """
@@ -68,7 +68,7 @@ def test__point__addition__not_implemented():
         ([Point(1, 2), Point(3, 4)], Point(4, 6)),
     ],
 )
-def test__point__addition_inplace(points: list[Number | Point], expected: Point):
+def test__point__iadd(points: list[Number | Point], expected: Point):
     """
     Test the ``Point.__iadd__()`` method.
     """
@@ -87,7 +87,7 @@ def test__point__addition_inplace(points: list[Number | Point], expected: Point)
         (Point(4, 6), Point(3, 4), Point(1, 2)),
     ],
 )
-def test__point__subtraction(point: Point, other: Number | Point, expected: Point):
+def test__point__sub(point: Point, other: Number | Point, expected: Point):
     """
     Test the ``Point.__sub__()`` and ``Point.__rsub__()`` method.
     """
@@ -101,14 +101,14 @@ def test__point__subtraction(point: Point, other: Number | Point, expected: Poin
         (3.0, Point(4.0, 5.0), Point(-1.0, -2.0)),
     ],
 )
-def test__point__subtraction__right(other: Number, point: Point, expected: Point):
+def test__point__rsub(other: Number, point: Point, expected: Point):
     """
     Test the ``Point.__sub__()`` and ``Point.__rsub__()`` method.
     """
     assert other - point == expected
 
 
-def test__point__subtraction__not_implemented():
+def test__point__sub__not_implemented():
     """
     Test that ``Point.__sub__()`` fails.
     """
@@ -116,7 +116,7 @@ def test__point__subtraction__not_implemented():
         Point(1, 2) - "3"
 
 
-def test__point__subtraction__right__not_implemented():
+def test__point__rsub__not_implemented():
     """
     Test that ``Point.__rsub__()`` fails.
     """
@@ -131,7 +131,7 @@ def test__point__subtraction__right__not_implemented():
         ([Point(4, 6), Point(3, 4)], Point(-7, -10)),
     ],
 )
-def test__point__subtraction_inplace(points: list[Number | Point], expected: Point):
+def test__point__isub(points: list[Number | Point], expected: Point):
     """
     Test the ``Point.__isub__()`` method.
     """
@@ -150,7 +150,7 @@ def test__point__subtraction_inplace(points: list[Number | Point], expected: Poi
         (Point(1, 2), Point(3, 4), Point(3, 8)),
     ],
 )
-def test__point__multiplication(point: Point, other: Number | Point, expected: Point):
+def test__point__mul(point: Point, other: Number | Point, expected: Point):
     """
     Test the ``Point.__mul__()`` and ``Point.__rmul__()`` method.
     """
@@ -158,7 +158,7 @@ def test__point__multiplication(point: Point, other: Number | Point, expected: P
     assert other * point == expected
 
 
-def test__point__multiplication__not_implemented():
+def test__point__mul__not_implemented():
     """
     Test that ``Point.__mul__()`` fails.
     """
@@ -173,7 +173,7 @@ def test__point__multiplication__not_implemented():
         ([Point(1, 2), Point(3, 4)], Point(3, 8)),
     ],
 )
-def test__point__multiplication_inplace(points: list[Number | Point], expected: Point):
+def test__point__imul(points: list[Number | Point], expected: Point):
     """
     Test the ``Point.__imul__()`` method.
     """
@@ -213,7 +213,7 @@ def test__point__rotate(point: Point, angle: Number, expected: Point):
         (Line(1.0, 2.0), 1.0, 2.0),
     ],
 )
-def test__line__initialisation__numbers(line: Line, start: Number, end: Number):
+def test__line__init__numbers(line: Line, start: Number, end: Number):
     """
     Test the ``Line.__init__()`` method with numbers.
     """
@@ -221,7 +221,7 @@ def test__line__initialisation__numbers(line: Line, start: Number, end: Number):
     assert line.end == Point(end, end)
 
 
-def test__line__initialisation__points():
+def test__line__init__points():
     """
     Test the ``Line.__init__()`` method with points.
     """
@@ -231,7 +231,7 @@ def test__line__initialisation__points():
     assert line.end == Point(3, 4)
 
 
-def test__line__initialisation__mixed():
+def test__line__init__mixed():
     """
     Test the ``Line.__init__()`` method with mixed types.
     """
@@ -241,7 +241,7 @@ def test__line__initialisation__mixed():
     assert line.end == Point(3, 4)
 
 
-def test__line__string():
+def test__line__str():
     """
     Test the ``Line.__str__()`` method.
     """
@@ -250,7 +250,7 @@ def test__line__string():
     assert str(line) == "Line(Point(x=1, y=1), Point(x=3, y=4))"
 
 
-def test__line__representation():
+def test__line__repr():
     """
     Test the ``Line.__repr__()`` method.
     """
@@ -260,7 +260,7 @@ def test__line__representation():
     assert eval(repr(line)) == line
 
 
-def test__line__equal__not_implemented():
+def test__line__eq__not_implemented():
     """
     Test that ``Line.__eq__()`` is ``False``.
     """
@@ -274,7 +274,7 @@ def test__line__equal__not_implemented():
         (Line(1, 2), Point(3, 4), Line(Point(4, 5), Point(5, 6))),
     ],
 )
-def test__line__addition(line: Line, other: Number | Point, expected: Line):
+def test__line__add(line: Line, other: Number | Point, expected: Line):
     """
     Test the ``Line.__add__()`` and ``Line.__radd__()`` method.
     """
@@ -289,7 +289,7 @@ def test__line__addition(line: Line, other: Number | Point, expected: Line):
         (Line(1, 2), Line(3, 4)),
     ],
 )
-def test__line__addition__not_implemented(line: Line, other: str | Line):
+def test__line__add__not_implemented(line: Line, other: str | Line):
     """
     Test that ``Line.__add__()`` fails.
     """
@@ -304,7 +304,7 @@ def test__line__addition__not_implemented(line: Line, other: str | Line):
         ([Point(1, 2), Point(3, 4)], Line(Point(4, 6), Point(4, 6))),
     ],
 )
-def test__line__addition_inplace(points: list[Number | Point], expected: Line):
+def test__line__iadd(points: list[Number | Point], expected: Line):
     """
     Test the ``Line.__iadd__()`` method.
     """
