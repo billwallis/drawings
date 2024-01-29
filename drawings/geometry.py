@@ -1,6 +1,7 @@
 """
 Defines the geometric drawing objects, such as points and lines.
 """
+
 from __future__ import annotations
 
 import math
