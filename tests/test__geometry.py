@@ -1,6 +1,7 @@
 """
 Tests for the ``drawings/geometry.py`` module.
 """
+
 from __future__ import annotations
 
 import math
