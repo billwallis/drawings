@@ -15,3 +15,7 @@
 # Drawings 🎨✍️
 
 Some drawings and stuff -- related to the images created in [ma5p1-dissertation-code](https://github.com/Bilbottom/ma5p1-dissertation-code).
+
+For example:
+
+![square](square.png)

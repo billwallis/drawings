@@ -11,7 +11,8 @@ rule_settings:
   enable:
     - default
     - gpsg
-  disable: []
+  disable:
+    - avoid-single-character-names-variables # this project is very mathsy
   rule_types:
     - refactoring
     - suggestion
