@@ -1,7 +1,7 @@
 ---
 ci:
   autoupdate_schedule: quarterly
-  skip: ["poetry-lock"]
+  skip: ["identity", "poetry-lock"]
 
 repos:
   - repo: meta
