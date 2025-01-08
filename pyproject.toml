@@ -1,18 +1,19 @@
+[project]
+name = "drawings"
+version = "0.0.0"
+description = "A creative outlet for fun and stuff."
+readme = "README.md"
+authors = [{name = "Bilbottom"}]
+repository = "https://github.com/Bilbottom/drawings"
+requires-python = ">=3.11,<4.0"
+dynamic = ["dependencies"]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 
-[tool.poetry]
-name = "drawings"
-version = "0.0.0"
-description = "A creative outlet for fun and stuff."
-readme = "README.md"
-authors = ["Bilbottom"]
-repository = "https://github.com/Bilbottom/drawings"
-
 [tool.poetry.dependencies]
-python = "^3.11"
 matplotlib = "^3.7.2"
 geometry = {git = "http://git@github.com/Bilbottom/geometry.git", rev = "v0.0.5"}
 
