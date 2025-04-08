@@ -1,7 +1,7 @@
 ---
 ci:
   autoupdate_schedule: quarterly
-  skip: ["identity", "uv-lock"]
+  skip: ["identity"]
 
 repos:
   - repo: meta
@@ -31,14 +31,8 @@ repos:
       - id: check-ast
         name: Validate Python
 
-  - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.6.5
-    hooks:
-      - id: uv-lock
-        name: Check that the lock file is up-to-date
-
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.6
+    rev: v0.11.4
     hooks:
       - id: ruff
         name: Lint Python code
