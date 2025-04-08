@@ -8,29 +8,13 @@ version = "0.0.0"
 description = "A creative outlet for fun and stuff."
 readme = "README.md"
 authors = [{name = "Bilbottom"}]
-requires-python = ">=3.11,<4.0"
-dependencies = [
-    "matplotlib>=3.7.2",
-    "geometry",
-]
-
-[dependency-groups]
-dev = [
-    "coverage-badge>=1.1.0",
-    "pre-commit>=4.1.0",
-]
-test = [
-    "pytest>=8.3.5",
-    "pytest-cov>=6.0.0",
-]
-
-
-[tool.uv.sources]
-geometry = {git = "https://git@github.com/Bilbottom/geometry.git", rev = "v0.0.5"}
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
 
 
 [tool.setuptools]
 packages = ["drawings"]
+dynamic.dependencies = {file = ["requirements.txt"]}
 
 
 [tool.ruff]
@@ -57,4 +41,5 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 "tests/**/*.py" = [
     "S101",    #  Use of `assert` detected
     "PLR2004", #  Magic value used in comparison
+    "PLR0913", #  Too many arguments in function definition
 ]
