@@ -20,7 +20,7 @@ jobs:
           python-version-file: "pyproject.toml"
 
       - name: 🔨 Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -e . -r requirements.txt
 
       - name: ✅ Run unit tests
         run: pytest -vvv
