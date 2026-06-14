@@ -14,8 +14,8 @@
 
 # Drawings 🎨✍️
 
-Some drawings and stuff -- related to the images created in [ma5p1-dissertation-code](https://github.com/billwallis/ma5p1-dissertation-code).
+A creative outlet for fun and stuff.
 
-For example:
+Related to the images created in [ma5p1-dissertation-code](https://github.com/billwallis/ma5p1-dissertation-code). For example:
 
 ![square](square.png)
